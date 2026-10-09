@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notes — StudyNest</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+</head>
+<body class="dash-page">
+<div class="app">
+  <aside class="sb">
+    <a class="sb-brand" href="index.html"><span class="sb-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="52" y="3" width="11" height="11" rx="3" fill="#8e24aa"/><rect x="67" y="11" width="10" height="10" rx="3" fill="#ffb300"/><rect x="22" y="11" width="16" height="16" rx="4" fill="#34a853"/><rect x="43" y="18" width="12" height="12" rx="3" fill="#a0185f"/><rect x="66" y="27" width="10" height="10" rx="3" fill="#283593"/><rect x="31" y="31" width="13" height="13" rx="3" fill="#e53935"/><rect x="51" y="36" width="10" height="10" rx="3" fill="#ec407a"/><rect x="18" y="37" width="9" height="9" rx="3" fill="#283593"/><rect x="66" y="42" width="8" height="8" rx="2.5" fill="#03a9f4"/><path d="M20 56Q50 44 80 56L57 76H43Z" fill="#f4896a"/><ellipse cx="40" cy="62" rx="11" ry="6" fill="#fbc2ae" opacity=".7"/><ellipse cx="62" cy="60" rx="10" ry="6" fill="#fbc2ae" opacity=".55"/><path d="M43 76H57L50 90Z" fill="#555"/><path d="M43 76H50L50 90Z" fill="#333"/><ellipse cx="50" cy="94" rx="15" ry="2" fill="#444" opacity=".55"/></svg></span><span class="sb-name"><span>Study</span><b>Nest</b></span></a>
+    <a class="item" href="index.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg><span>Home</span></a><a class="item" href="live-classes.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4M16.2 7.8a6 6 0 0 1 0 8.4M7.8 16.2a6 6 0 0 1 0-8.4M19 5a10 10 0 0 1 0 14M5 19A10 10 0 0 1 5 5"/></svg><span>Live Classes</span></a><a class="item" href="recorded-classes.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4l13 8-13 8z"/></svg><span>Recorded Classes</span></a><a class="item on" href="notes.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5zM20 17v4H6.5"/></svg><span>Notes</span></a><a class="item" href="test-series.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg><span>Test Series</span></a><a class="item" href="contact.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18v14H3zM3 6l9 7 9-7"/></svg><span>Contact</span></a>
+    <a class="item hot" href="login.html" data-doubt><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg><span>Raise a Doubt</span></a>
+    <div class="grow"></div>
+    <a class="item" href="login.html" data-guest><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg><span>Log in</span></a>
+    <a class="item" href="signup.html" data-guest><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg><span>Sign up</span></a>
+    <button class="item" type="button" data-dash hidden onclick="snLogout()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg><span>Log out</span></button>
+  </aside>
+  <main class="dm">
+    <header class="tb">
+      <label class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14M21 21l-4.3-4.3"/></svg><input id="dsearch" type="text" placeholder="Search…"></label>
+      <a class="btn-dark" href="login.html" data-guest>Sign In</a>
+      <a class="btn-dark" href="student-dashboard.html" data-dash hidden>Dashboard</a>
+    </header>
+
+
+<section class="section-tight">
+  <div class="container">
+    <span class="eyebrow">Read, revise, download</span>
+    <h1 style="font-size:30px;">Study notes</h1>
+    <p class="muted" style="max-width:60ch;">Chapter-wise notes for every subject. Downloads generate a real PDF right in your browser — try one below.</p>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="container">
+    <div class="grid grid-3" id="notesGrid"></div>
+  </div>
+</section>
+
+
+    <footer class="dfoot"><span>© 2026 StudyNest — built by Raman, Sansar &amp; Tanush</span><a href="contact.html">Need help? Contact us</a></footer>
+  </main>
+</div>
+
+
+<script src="js/main.js"></script>
+<script src="js/dash.js"></script>
+<script>
+  const notes = [
+    { icon:'📘', subject:'DBMS', title:'Normalisation — 1NF to BCNF', pages:'6 pages',
+      body:'Normalisation is the process of organising data to reduce redundancy.\n\n1NF: Every column holds atomic values.\n2NF: Meets 1NF and has no partial dependency on the primary key.\n3NF: Meets 2NF and has no transitive dependency.\nBCNF: A stricter version of 3NF for certain edge cases with overlapping candidate keys.' },
+    { icon:'🌐', subject:'Computer Networks', title:'The OSI Model', pages:'5 pages',
+      body:'The OSI model has 7 layers: Physical, Data Link, Network, Transport, Session, Presentation, and Application.\n\nEach layer has a distinct responsibility, from raw bit transmission at the Physical layer to end-user services at the Application layer.' },
+    { icon:'🧩', subject:'OOP', title:'Core Pillars of OOP', pages:'4 pages',
+      body:'The four pillars of Object-Oriented Programming are Encapsulation, Abstraction, Inheritance, and Polymorphism.\n\nEncapsulation bundles data and methods together. Abstraction hides implementation detail. Inheritance lets a class reuse another\'s behaviour. Polymorphism lets one interface take many forms.' },
+    { icon:'💻', subject:'Web Development', title:'HTML, CSS and the DOM', pages:'7 pages',
+      body:'HTML structures content, CSS styles it, and JavaScript manipulates the Document Object Model (DOM) to make pages interactive.\n\nThe DOM represents a page as a tree of nodes that scripts can read and modify.' },
+    { icon:'📐', subject:'Mathematics', title:'Matrices and Determinants', pages:'8 pages',
+      body:'A matrix is a rectangular array of numbers. The determinant is a scalar value that can be computed from a square matrix and tells us whether the matrix is invertible.' },
+    { icon:'🖥️', subject:'Operating Systems', title:'CPU Scheduling Algorithms', pages:'6 pages',
+      body:'Common CPU scheduling algorithms include First-Come-First-Served (FCFS), Shortest Job First (SJF), Round Robin, and Priority Scheduling. Each balances throughput, waiting time, and fairness differently.' }
+  ];
+
+  const grid = document.getElementById('notesGrid');
+  grid.innerHTML = notes.map((n,i) => `
+    <div class="card">
+      <div class="thumb">${n.icon}</div>
+      <span class="tag">${n.subject}</span>
+      <h3>${n.title}</h3>
+      <div class="card-meta"><span>${n.pages}</span><span>PDF</span></div>
+      <button class="btn btn-amber btn-block" onclick="downloadNote(${i})" type="button">Download PDF</button>
+    </div>
+  `).join('');
+
+  function downloadNote(i){
+    const n = notes[i];
+    if(!window.jspdf){ snToast('PDF library did not load — check your internet connection.'); return; }
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+    doc.setFontSize(16);
+    doc.text(n.title, 15, 20);
+    doc.setFontSize(11);
+    doc.text('StudyNest · ' + n.subject, 15, 28);
+    doc.setFontSize(12);
+    doc.text(doc.splitTextToSize(n.body, 180), 15, 42);
+    doc.save(n.title.replace(/[^a-z0-9]+/gi, '-') + '.pdf');
+    snToast('Downloaded: ' + n.title);
+  }
+</script>
+</body>
+</html>
